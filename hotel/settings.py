@@ -75,10 +75,12 @@ WSGI_APPLICATION = 'hotel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'localhost/orcl',
-        'USER': 'hotelmgmt',
-        'PASSWORD': 'hotel123',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'omkar18032001',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

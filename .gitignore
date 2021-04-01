@@ -16,7 +16,7 @@ debug/
 *.pot
 *.py[co]
 .tox/
-__pycache__
+**/__pycache__
 MANIFEST
 dist/
 docs/_build/
