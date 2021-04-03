@@ -1,6 +1,18 @@
-from django.shortcuts import render
+from django.core.checks import messages
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from staff_login.models import StaffLogin
 
 # Create your views here.
-def register(request):
-    return render(request, 'staff_login/login.html')
+def loginPage(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
 
+        user = StaffLogin.objects.raw('select * from staff_login_stafflogin where "Email" = %s and "Password" = %s', [email, password])[0]
+        if user is not None:
+            return redirect('home')
+        else:
+            messages.info(request, 'Email or Password is incorrect')
+
+    return render(request, 'staff_login/login.html')
