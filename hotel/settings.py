@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'staff_login.apps.StaffLoginConfig',
     'staff_home.apps.StaffHomeConfig',
     'customer_home.apps.CustomerHomeConfig',
+    'customer_login.apps.CustomerLoginConfig',
 ]
 
 MIDDLEWARE = [

@@ -11,7 +11,7 @@ def loginPage(request):
 
         user = StaffLogin.objects.raw('select * from staff_login_stafflogin where "Email" = %s and "Password" = %s', [email, password])
         if len(user) == 1:
-            return redirect('home')
+            return redirect('http://127.0.0.1:8000/staff_home')
         else:
             messages.info(request, 'Email or Password is incorrect')
 
