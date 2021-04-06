@@ -8,3 +8,5 @@ class Customer(models.Model):
     password = models.TextField(max_length=10)
     age = models.IntegerField()
     
+
+
