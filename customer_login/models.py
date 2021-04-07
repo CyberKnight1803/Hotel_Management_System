@@ -7,6 +7,3 @@ class Customer(models.Model):
     phone = models.TextField(max_length=11)
     password = models.TextField(max_length=10)
     age = models.IntegerField()
-    
-
-

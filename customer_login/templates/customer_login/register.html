@@ -1,0 +1,20 @@
+{% extends "customer_home/base.html" %}
+
+{% block content %}
+    <div>
+        <form method="POST">
+            <!-- {% csrf_token %} -->
+            <fieldset>
+                <legend>Register</legend>
+                {{ form }}
+            </fieldset>
+            <button>Sign Up</button>
+        </form>
+        <div>
+            <small>
+                Already Have An Account ?
+                <a href="#">Sign In</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

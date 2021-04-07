@@ -1,7 +1,22 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
+from django.shortcuts import render, redirect
+# from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
+
 def register(request):
-    return HttpResponse('<h1>Blog Home</h1>')
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}. You can now login')
+            return redirect('Customer_Home')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'customer_login/register.html', {'form': form})
 
+@login_required  # decorator
+def profile(request):
+    return render(request, 'customer_login/profile.html')
