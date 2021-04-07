@@ -129,3 +129,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'Customer_Home'
+DATE_INPUT_FORMATS = ['%d-%m-%Y']

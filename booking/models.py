@@ -1,11 +1,11 @@
 from django.db import models
 
 # Create your models here.
-class Bookings(models.Model):
+class Booking(models.Model):
     checkin = models.DateField()
     checkout = models.DateField()
-    adults = models.IntegerField()
-    children = models.IntegerField() 
+    adults = models.PositiveIntegerField()
+    children = models.PositiveIntegerField()
     roomtype = models.TextField(max_length=15)
-    rooms = models.IntegerField()
+    rooms = models.PositiveIntegerField()
     email = models.EmailField(null=True)

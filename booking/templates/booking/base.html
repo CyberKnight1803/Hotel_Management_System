@@ -3,8 +3,13 @@
     <body>
         <form action="" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit", value="OK">
+<!--             {{ form.as_p }}
+            <input type="submit", value="OK"> -->
+            <fieldset>
+                <legend>Book Now</legend>
+                {{ form.as_p }}
+            </fieldset>
+            <button>Book</button>
         </form>
     </body>
 </html>

@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect
 from .forms import BookingForm
-from .models import Bookings
+from django.contrib import messages
+from .models import Booking
 # Create your views here.
 
 def bookings(request):
     if request.method == 'POST':
-        form = BookingForm(request.method)
-        form.save()
-
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Booking Queued')
+            return redirect('Customer_Home')
         """ checkin = form.cleaned_data['checkin']
         checkout = form.cleaned_data['checkout']
         adults = form.cleaned_data['adults']
@@ -18,6 +21,7 @@ def bookings(request):
         booking = Bookings(checkin=checkin, checkout=checkout, adults=adults, children=children,
         roomtype=roomtype,rooms=rooms)
         booking.save() """
-        return redirect('http://127.0.0.1:8000/')
-                
-    return render(request, 'booking/base.html', {'form' : BookingForm()})
+    else:
+        form = BookingForm()
+
+    return render(request, 'booking/base.html', {'form' : form})
