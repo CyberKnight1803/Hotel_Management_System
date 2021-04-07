@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import BookingForm
 from django.contrib import messages
-from .models import Booking
+from .models import Reservation
 # Create your views here.
 
 def bookings(request):
