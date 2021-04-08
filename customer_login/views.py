@@ -5,6 +5,7 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 
+
 # Imports necessary for Email 
 from django.core.mail import EmailMessage
 from django.conf import settings

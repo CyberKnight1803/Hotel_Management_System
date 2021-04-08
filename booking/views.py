@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from .forms import BookingForm
 from django.contrib import messages
 from .models import Reservation
+from django.contrib.auth import User
 
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
+
 # Create your views here.
 
 def bookings(request):
@@ -14,21 +16,22 @@ def bookings(request):
         if form.is_valid():
             form.save()
             
-            """ details = {
+            user_email = request.user.profile.email
+            details = {
                 'checkin': form.cleaned_data.get('checkin'),
                 'checkout': form.cleaned_data.get('checkout'),
                 'roomtype': form.cleaned_data.get('roomtype'),
                 'rooms': form._clean_fields.get('rooms'),
             }
-            template = render_to_string('booking/email.html',)
+            template = render_to_string('booking/email.html', details)
             email = EmailMessage(
                 'Reservation Confirmation #', 
                 template,
                 settings.EMAIL_HOST_USER,
-                
+                [user_email]
             )
             email.fail_silently=False
-            email.send() """
+            email.send()
             messages.success(request, f'Booking Queued')
             return redirect('Customer_Home')
 
