@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from booking.models import Reservation
 
-# Create your views here.
 def home(request):
-    return render(request, 'staff_home/base.html')
+    reservations = Reservation.objects.all()
+    return render(request, 'staff_home/base.html', {'reservations': reservations})

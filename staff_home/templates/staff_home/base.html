@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>STAFF HOME PAGE</h1>
+        <h1>STAFF HOME</h1>
+        {% for reservation in reservations %}
+          <fieldset>
+            <legend><h2><a> ReservationID - {{reservation.reservationID}} </a></h2></legend>
+            <li><a> Checkin - {{reservation.checkin}} </a></li>
+            <li><a> Checkout - {{reservation.checkout}} </a></li>
+            <li><a> Adults - {{reservation.adults}} </a></li>
+            <li><a> Children - {{reservation.children}} </a></li>
+            <li><a> Roomtype - {{reservation.roomtype}} </a></li>
+            <li><a> Rooms - {{reservation.rooms}} </a></li>
+          </fieldset>
+        {% endfor %}
+
     </body>
 </html>
