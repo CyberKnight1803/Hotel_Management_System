@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .forms import BookingForm
 from django.contrib import messages
 from .models import Reservation
-from django.contrib.auth import User
 
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -15,13 +14,14 @@ def bookings(request):
         form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
-            
-            user_email = request.user.profile.email
+            user_email = request.user.email
+            username = request.user.username
             details = {
+                'name': username,
                 'checkin': form.cleaned_data.get('checkin'),
                 'checkout': form.cleaned_data.get('checkout'),
                 'roomtype': form.cleaned_data.get('roomtype'),
-                'rooms': form._clean_fields.get('rooms'),
+                'rooms': form.cleaned_data.get('rooms'),
             }
             template = render_to_string('booking/email.html', details)
             email = EmailMessage(
