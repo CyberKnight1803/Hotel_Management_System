@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>STAFF HOME</h1>
-        {% for reservation in reservations %}
+        <h1>Detail View</h1>
           <fieldset>
-            <legend><h2><a href="#"> ReservationID - {{reservation.reservationID}} </a></h2></legend>
+            <legend><h2><a> ReservationID - {{reservation.reservationID}} </a></h2></legend>
             <li><a> Checkin - {{reservation.checkin}} </a></li>
             <li><a> Checkout - {{reservation.checkout}} </a></li>
             <li><a> Adults - {{reservation.adults}} </a></li>
@@ -12,7 +11,7 @@
             <li><a> Roomtype - {{reservation.roomtype}} </a></li>
             <li><a> Rooms - {{reservation.rooms}} </a></li>
           </fieldset>
-        {% endfor %}
-
+          <button>Confirm</button>
+          <button>Decline</button>
     </body>
 </html>
