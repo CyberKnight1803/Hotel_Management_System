@@ -13,19 +13,32 @@ def bookings(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            form.save()
+            #form.save()
+            reservationID = form.cleaned_data.get('reservationID')
             user_email = request.user.email
             username = request.user.username
+            checkin = form.cleaned_data['checkin']
+            checkout = form.cleaned_data['checkout']
+            adults = form.cleaned_data['adults']
+            children = form.cleaned_data['children']
+            roomtype = form.cleaned_data['roomtype']
+            rooms = form.cleaned_data['rooms']
+
+            booking = Reservation(checkin=checkin, checkout=checkout, adults=adults, children=children,
+            roomtype=roomtype,rooms=rooms, email=user_email)
+            booking.save()
+            time = booking.date_requested
+            B = Reservation.objects.raw('SELECT "reservationID" FROM booking_reservation WHERE "email"=%s and "date_requested"=%s', [user_email, time])
             details = {
                 'name': username,
-                'checkin': form.cleaned_data.get('checkin'),
-                'checkout': form.cleaned_data.get('checkout'),
-                'roomtype': form.cleaned_data.get('roomtype'),
-                'rooms': form.cleaned_data.get('rooms'),
+                'checkin': checkin,
+                'checkout': checkout,
+                'roomtype': roomtype,
+                'rooms': rooms,
             }
             template = render_to_string('booking/email.html', details)
             email = EmailMessage(
-                'Reservation Confirmation #', 
+                'Reservation Confirmation #' + str(B[0].reservationID), 
                 template,
                 settings.EMAIL_HOST_USER,
                 [user_email]
@@ -34,17 +47,6 @@ def bookings(request):
             email.send()
             messages.success(request, f'Booking Queued')
             return redirect('Customer_Home')
-
-        """ checkin = form.cleaned_data['checkin']
-        checkout = form.cleaned_data['checkout']
-        adults = form.cleaned_data['adults']
-        children = form.cleaned_data['children']
-        roomtype = form.cleaned_data['roomtype']
-        rooms = form.cleaned_data['rooms']
-
-        booking = Bookings(checkin=checkin, checkout=checkout, adults=adults, children=children,
-        roomtype=roomtype,rooms=rooms)
-        booking.save() """
     else:
         form = BookingForm()
 
