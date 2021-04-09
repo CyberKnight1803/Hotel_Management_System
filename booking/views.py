@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import BookingForm
 from django.contrib import messages
 from .models import Reservation
+from .pdf import renderPDF
 
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -36,6 +37,7 @@ def bookings(request):
                 'roomtype': roomtype,
                 'rooms': rooms,
             }
+            pdf = renderPDF('booking/booking_pdf.html', details, 'booking.pdf')
             template = render_to_string('booking/email.html', details)
             email = EmailMessage(
                 'Reservation Confirmation #' + str(B[0].reservationID), 
@@ -44,6 +46,7 @@ def bookings(request):
                 [user_email]
             )
             email.fail_silently=False
+            email.attach_file('booking.pdf', pdf)
             email.send()
             messages.success(request, f'Booking Queued')
             return redirect('Customer_Home')
