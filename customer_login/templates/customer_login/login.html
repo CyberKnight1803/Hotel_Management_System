@@ -6,14 +6,14 @@
             {% csrf_token %}
             <fieldset>
                 <legend>Log In</legend>
-                {{ form }}
+                {{ form.as_p }}
             </fieldset>
             <button>Login</button>
         </form>
         <div>
             <small>
                 Do you need an account?
-                <a href="{% url 'SignUp' %}">Sign Up Now</a>
+                <a href="{% url 'register' %}">Sign Up Now</a>
             </small>
         </div>
     </div>

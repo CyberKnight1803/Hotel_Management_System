@@ -9,9 +9,9 @@ class UserRegisterForm(UserCreationForm):
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Last Name'}), max_length=20)
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Email address'}), max_length=40)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'.")
-    phone = forms.CharField(validators=[phone_regex], max_length=10)
+    phone = forms.CharField(validators=[phone_regex], max_length=10, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone No'}))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Again'}), help_text='**Both Password should match**')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password Confirmation'}), help_text='Enter the same password as before for verification')
 
     class Meta(UserCreationForm.Meta):
         model = User

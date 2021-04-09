@@ -3,12 +3,18 @@ from django.utils import timezone
 
 # Create your models here.
 class Reservation(models.Model):
+    ROOM_TYPE_CHOICES = (
+      (1, 'single'),
+      (2, 'double'),
+      (3, 'suite'),
+      (4, 'luxury'),
+    )
     reservationID = models.AutoField(primary_key=True)
     checkin = models.DateField()
     checkout = models.DateField()
     adults = models.PositiveIntegerField()
     children = models.PositiveIntegerField()
-    roomtype = models.TextField(max_length=25)
+    roomtype = models.PositiveSmallIntegerField(choices=ROOM_TYPE_CHOICES)
     rooms = models.PositiveIntegerField()
     email = models.EmailField(null=True)
     date_requested = models.DateTimeField(default=timezone.now)
