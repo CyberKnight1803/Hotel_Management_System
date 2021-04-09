@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '12345',
+        'PASSWORD': 'omkar18032001',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -130,3 +130,11 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'Customer_Home'
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
+#SMPT Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'radissoninn@gmail.com'
+EMAIL_HOST_PASSWORD = 'radisson123'
