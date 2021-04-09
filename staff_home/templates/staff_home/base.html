@@ -2,6 +2,7 @@
 <html>
     <body>
         <h1>STAFF HOME</h1>
+        <a href="{% url 'detailview' %}">Detail View</a>
         {% for reservation in reservations %}
           <fieldset>
             <legend><h2><a href="#"> ReservationID - {{reservation.reservationID}} </a></h2></legend>
