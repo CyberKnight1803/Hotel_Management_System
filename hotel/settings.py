@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '12345',
+        'PASSWORD': 'omkar18032001',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -130,6 +130,7 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'Customer_Home'
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
+TIME_INPUT_FORMATS = ['%H:%M']
 
 #SMPT Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

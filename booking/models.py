@@ -18,3 +18,5 @@ class Reservation(models.Model):
     rooms = models.PositiveIntegerField()
     email = models.EmailField(null=True)
     date_requested = models.DateTimeField(default=timezone.now)
+    checkin_status = models.BooleanField(default=False)
+    checkout_status = models.BooleanField(default=False)
