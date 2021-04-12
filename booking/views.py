@@ -56,3 +56,8 @@ def bookings(request):
         form = BookingForm()
 
     return render(request, 'booking/base.html', {'form' : form})
+
+
+def grid_view(request):
+    return render(request, 'booking/grid.html')
+    
