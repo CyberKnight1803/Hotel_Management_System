@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'customer_home.apps.CustomerHomeConfig',
     'customer_login.apps.CustomerLoginConfig',
     'booking.apps.BookingConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'omkar18032001',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -139,3 +140,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'radissoninn@gmail.com'
 EMAIL_HOST_PASSWORD = 'radisson123'
+
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+AUTH_USER_MODEL = 'users.User'
+
