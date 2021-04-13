@@ -1,8 +1,313 @@
-{% extends "customer_home/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RadissonInn</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'customer_home/homepage.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-{% block content %}
-    <h1> Home Page </h1>
-    {% if user.is_authenticated %}
-    <h1>Welcome {{ user.username }}</h1>
-    {% endif %}
-{% endblock content %}
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'Customer_Home' %}">
+          <img
+            src="{% static 'customer_home/bed.png' %}"
+            alt=""
+            width="30"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+          RadissonInn
+        </a>
+      </div>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Booking' %}">Booking</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Rooms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <div class="banner">
+        <img
+          src="{% static 'customer_home/room_stock_1.jpg' %}"
+          alt=""
+          width="100%"
+          height="500px"
+          class="banner_image"
+        />
+      </div>
+
+      <div class="first">
+        <div class="welcome">
+          <h1 class="heading">WELCOME TO RADISSSON</h1>
+          <h3 class="subheading">A Lifetime Experience</h3>
+          <p class="first_desc">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Repellendus nulla iusto eligendi libero aperiam. Ea aliquid,
+            officiis illo nam debitis nesciunt temporibus atque excepturi
+            similique, ullam accusantium delectus eaque itaque. Optio odit
+            labore modi suscipit quae voluptatem. Odit laborum, eius culpa
+            debitis delectus rerum at in harum quia repellat?
+          </p>
+        </div>
+      </div>
+
+      <div class="second">
+        <div class="para para_1">
+          <div class="written">
+            <h3 class="para_heading">First Paragraph</h3>
+            <p class="para_description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+              fugit repellat quis pariatur impedit, sequi voluptatum. Tempore
+              quod eaque repellat molestiae impedit maiores dignissimos facere
+              quae. Cum illum repudiandae velit.
+            </p>
+          </div>
+          <img
+            src="{% static 'customer_home/para_1.jpg' %}"
+            alt=""
+            class="para_image"
+          />
+        </div>
+        <div class="para para_2">
+          <div class="written">
+            <h3 class="para_heading">Second Paragraph</h3>
+            <p class="para_description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+              fugit repellat quis pariatur impedit, sequi voluptatum. Tempore
+              quod eaque repellat molestiae impedit maiores dignissimos facere
+              quae. Cum illum repudiandae velit.
+            </p>
+          </div>
+          <img
+            src="{% static 'customer_home/para_2.jpg' %}"
+            alt=""
+            class="para_image"
+          />
+        </div>
+        <div class="para para_3">
+          <div class="written">
+            <h3 class="para_heading">Third Paragraph</h3>
+            <p class="para_description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+              fugit repellat quis pariatur impedit, sequi voluptatum. Tempore
+              quod eaque repellat molestiae impedit maiores dignissimos facere
+              quae. Cum illum repudiandae velit.
+            </p>
+          </div>
+          <img
+            src="{% static 'customer_home/para_3.jpg' %}"
+            alt=""
+            class="para_image"
+          />
+        </div>
+      </div>
+
+      <div class="third">
+        <div class="third_desc">
+          <h2>GENERAL FACILITIES</h2>
+          <h5>Ad principes scriptorem duo, te omnium gubergren eam</h5>
+        </div>
+        <div class="item">
+          <div class="item_icon">
+            <img
+              src="{% static 'customer_home/icons8-restaurant-table-64.png' %}"
+              alt=""
+              width="64px"
+              height="64px"
+            />
+          </div>
+          <div class="item_title"><h4>Restaurant</h4></div>
+          <div class="item_desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+            debitis cum aliquid voluptates fugiat voluptate doloribus, nihil
+            suscipit ipsam expedita quos libero. Ea ratione molestias autem
+            perferendis natus eaque quasi.
+          </div>
+        </div>
+        <div class="item">
+          <div class="item_icon">
+            <img
+              src="{% static 'customer_home/icons8-valet-parking-80.png' %}"
+              alt=""
+              width="64px"
+              height="64px"
+            />
+          </div>
+          <div class="item_title"><h4>Valet</h4></div>
+          <div class="item_desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
+            neque! Ipsa adipisci eius ullam doloribus, culpa eaque vitae
+            explicabo error repellat aliquam veritatis quisquam illo iure,
+            facere cupiditate laboriosam maiores.
+          </div>
+        </div>
+        <div class="item">
+          <div class="item_icon">
+            <img
+              src="{% static 'customer_home/icons8-pets-512.png' %}"
+              alt=""
+              width="64px"
+              height="64px"
+            />
+          </div>
+          <div class="item_title"><h4>Pets</h4></div>
+          <div class="item_desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+            placeat commodi consequatur sequi tempore architecto, et distinctio
+            dolores itaque unde. Autem hic libero ipsa, explicabo accusamus
+            suscipit voluptatum vero debitis!
+          </div>
+        </div>
+        <div class="item">
+          <div class="item_icon">
+            <img
+              src="{% static 'customer_home/icons8-handicapped-96.png' %}"
+              alt=""
+              width="64px"
+              height="64px"
+            />
+          </div>
+          <div class="item_title"><h4>Enabled</h4></div>
+          <div class="item_desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+            sapiente illo quasi debitis, tempore earum quas neque a asperiores
+            aspernatur cum ipsam perspiciatis. Ullam dolores nulla
+            necessitatibus sequi, aliquid non?
+          </div>
+        </div>
+        <div class="item">
+          <div class="item_icon">
+            <img
+              src="{% static 'customer_home/icons8-food-service-80.png' %}"
+              alt=""
+              width="64px"
+              height="64px"
+            />
+          </div>
+          <div class="item_title"><h4>Room Service</h4></div>
+          <div class="item_desc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex
+            suscipit voluptate aliquid sint? Aspernatur amet excepturi placeat,
+            tempora magnam quam voluptatem nesciunt magni aperiam earum
+            provident est illum id.
+          </div>
+        </div>
+        <div class="item">
+          <div class="item_icon">
+            <img
+              src="{% static 'customer_home/icons8-clothes-in-laundry-96.png' %}"
+              alt=""
+              width="64px"
+              height="64px"
+            />
+          </div>
+          <div class="item_title"><h4>Laundry</h4></div>
+          <div class="item_desc">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam error
+            soluta voluptates blanditiis ipsa, voluptatem nobis ipsam saepe?
+            Reiciendis reprehenderit sint, esse in laudantium dolorum?
+            Explicabo, aliquid? Libero, voluptatibus tenetur.
+          </div>
+        </div>
+      </div>
+
+      <div class="fourth">
+        <div class="fourth_image fourth_image_1">
+          <img
+            src="{% static 'customer_home/fourth_1.jpg' %}"
+            alt=""
+            width="100%"
+          />
+        </div>
+        <div class="fourth_image fourth_image_2">
+          <img
+            src="{% static 'customer_home/fourth_2.jpg' %}"
+            alt=""
+            width="100%"
+          />
+        </div>
+        <div class="fourth_image fourth_image_3">
+          <img
+            src="{% static 'customer_home/fourth_3.jpeg' %}"
+            alt=""
+            width="100%"
+          />
+        </div>
+        <div class="fourth_image fourth_image_4">
+          <img
+            src="{% static 'customer_home/fourth_3.jpeg' %}"
+            alt=""
+            width="100%"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer_dummy"></div>
+      <div class="footer_details">
+        <div class="footer_item footer_logo">
+          <img
+            src="{% static 'customer_home/logo_r.jpg' %}"
+            alt=""
+            width="50%"
+            height=""
+          />
+        </div>
+        <div class="footer_item footer_name">
+          <h2>Radisson Inn</h2>
+        </div>
+        <div class="footer_item footer_address">
+          <h3>Located At</h3>
+          <h5>Wayne Manor, Hyderabad, India</h5>
+        </div>
+        <div class="footer_item footer_no">
+          <h3>Contact Us</h3>
+          <a class="tel_no" href="tel://009176543210"
+            ><h5>+91 765 432 10</h5></a
+          >
+        </div>
+        <div class="footer_social_media">
+          <a href="https://facebook.com"
+            ><img
+              src="{% static 'customer_home/icons8-facebook-64.png' %}"
+              alt=""
+          /></a>
+          <a href="https://instagram.com"
+            ><img
+              src="{% static 'customer_home/icons8-instagram-64.png' %}"
+              alt=""
+          /></a>
+          <a href="https://pinterest.com"
+            ><img
+              src="{% static 'customer_home/icons8-pinterest-64.png' %}"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="footer_dummy"></div>
+    </div>
+  </body>
+</html>

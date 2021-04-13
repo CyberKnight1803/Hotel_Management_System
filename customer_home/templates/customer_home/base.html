@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <title>CUSTOMER-HOME</title>
-    <body>
-        <header>
-            <ul>
-                <li><a href="{% url 'Customer_Home' %}">Home</a></li>
-                {% if user.is_authenticated %}
-                    <li><a href="{% url 'Booking' %}">Book Now</a></li>
-                    <li><a href="{% url 'home' %}">Staff Home Page</a></li>
-                    <li><a href="{% url 'profile' %}">Profile</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                {% endif %}
-            </ul>
-        </header>
-        <main>
-            <div>
-                {% if messages %}
-                    {% for message in messages %}
-                        <div>{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-                {% block content %}{% endblock %}
-            </div>
-        </main>
-    </body>
+  <title>CUSTOMER-HOME</title>
+  <body>
+    <header>
+      <ul>
+        <li><a href="{% url 'Customer_Home' %}">Home</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'Booking' %}">Book Now</a></li>
+        <li><a href="{% url 'home' %}">Staff Home Page</a></li>
+        <li><a href="{% url 'profile' %}">Profile</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+        {% endif %}
+      </ul>
+    </header>
+    <main>
+      <div>
+        {% if messages %} {% for message in messages %}
+        <div>{{ message }}</div>
+        {% endfor %} {% endif %} {% block content %}{% endblock %}
+      </div>
+    </main>
+  </body>
 </html>
