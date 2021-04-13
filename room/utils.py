@@ -21,4 +21,7 @@ def availableRooms(Date):
         'luxury' : 5 - len(luxury),
     }
     
-    
+    return Availability
+
+def insertRoom(reservationID):
+    pass
