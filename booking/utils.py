@@ -21,4 +21,4 @@ def isAvailable(booking):
         return True
     else:
         return False
-
+    

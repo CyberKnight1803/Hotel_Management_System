@@ -6,9 +6,11 @@ from .utils import renderPDF, isAvailable
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def bookings(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
