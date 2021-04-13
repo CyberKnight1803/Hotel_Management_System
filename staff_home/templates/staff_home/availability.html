@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <bod>
+        <h1>AVAILABILITY CHECKER</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                {{ form.as_p }}
+            </fieldset>
+        </form>
+    </bod>
+</html>
+
