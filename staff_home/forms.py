@@ -6,4 +6,5 @@ class DateInput(forms.DateInput):
 
 class AvailabilityForm(forms.Form):
     date = forms.DateField(widget=DateInput, input_formats=['%Y-%m-%d'])
+    
                                

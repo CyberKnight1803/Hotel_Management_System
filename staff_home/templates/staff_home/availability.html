@@ -7,7 +7,14 @@
             <fieldset>
                 {{ form.as_p }}
             </fieldset>
+            <button>submit</button>
         </form>
+
+        <ul>
+            {% for key, value in availability.items %} 
+              <li>{{key}} - {{value}}</li>
+            {% endfor %}
+        </ul>
     </bod>
 </html>
 
