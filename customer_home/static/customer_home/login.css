@@ -23,6 +23,15 @@ body {
   background-color: rgba(201, 202, 100, 0.733);
 }
 
+.content_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 1rem auto;
+}
+
 .footer {
   background-color: #222;
   color: white;

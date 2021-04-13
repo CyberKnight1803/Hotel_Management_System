@@ -21,6 +21,16 @@ body {
   flex-direction: column;
   justify-content: space-around;
   background-color: rgba(201, 202, 100, 0.733);
+  
+}
+
+.logout_message, .see_you_soon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 1rem auto;
 }
 
 .footer {
