@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from users.models import User
 
 # Create your models here.
 class Reservation(models.Model):

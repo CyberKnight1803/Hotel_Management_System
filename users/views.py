@@ -57,7 +57,7 @@ class CustomerSignUpView(CreateView):
             username = form.cleaned_data.get('username')
             user_email = form.cleaned_data.get('email')
 
-            template = render_to_string('customer_login/email.html', {'name': username})
+            template = render_to_string('users/email.html', {'name': username})
             email = EmailMessage(
                  'New Account!',
                  template,
