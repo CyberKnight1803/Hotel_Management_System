@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from users.models import User
+from users.models import User, Profile
 from django.core.validators import RegexValidator
 
 
@@ -48,3 +48,14 @@ class CustomerSignUpForm(UserCreationForm):
         user.save()
 
         return user
+
+class UserUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']
