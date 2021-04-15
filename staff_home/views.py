@@ -6,6 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 from .forms import AvailabilityForm
 from room.utils import availableRooms
+from users.models import User
 
 @login_required
 @staff_required
@@ -33,6 +34,10 @@ def home(request):
 class detail(DetailView):
     model = Reservation
     template_name = 'staff_home/detail.html'
+
+    # userid = Reservation.objects.raw('SELECT user_id FROM booking_reservation')
+    # user = User.objects.raw('SELECT first_name, last_name FROM users.user WHERE id IN ({userid})')
+
 
 
 def availability(request):
