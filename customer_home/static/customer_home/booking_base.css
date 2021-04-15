@@ -2,7 +2,7 @@ body {
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-rows: 75px auto 300px;
+  grid-template-rows: 1fr 8fr 1fr;
   grid-template-columns: 100%;
   font-family: "Lato", sans-serif;
 }
@@ -18,19 +18,13 @@ body {
 
 .content {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  justify-content: space-around;
-  background-color: rgba(201, 202, 100, 0.733);
-}
-
-.logout_message,
-.see_you_soon {
-  display: flex;
-  flex-direction: column;
+  justify-items: center;
   justify-content: center;
   align-items: center;
-  justify-items: center;
-  padding: 1rem auto;
+  padding-bottom: 2rem;
+  background-color: rgba(114, 198, 209, 0.733);
 }
 
 .footer {
@@ -39,43 +33,78 @@ body {
   text-align: center;
 }
 
-.footer_details {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  justify-items: center;
-  width: 100%;
+form {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  padding: 1rem 5rem;
+  row-gap: 1rem;
+  background-color: rgba(143, 224, 141, 0.733);
+  justify-self: center;
   text-align: center;
-  padding: 1rem;
+  justify-items: center;
+  align-items: center;
+  color: brown;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+}
+.label {
+  display: block;
 }
 
-.tel_no:link {
+input,
+select {
+  width: 210px;
+  margin: 1rem;
+  height: 28px;
+  border-radius: 10px;
+  text-align: center;
+  outline: 0ch;
+  padding-left: 5rem;
+  border: 1px solid aqua;
+}
+
+input[type="date"] {
+  padding-left: 3rem;
+}
+
+input[type="number"] {
+  padding-left: 1rem;
+}
+
+.form_field {
+  width: 250px;
+  height: 84px;
+  text-align: center;
+}
+
+option {
+  text-align: center;
+}
+
+button {
+  background-color: rgba(143, 224, 141, 0.733);
+  color: brown;
+  border-radius: 10px;
+  text-align: center;
+  outline: 0ch;
+  border: 3px solid olive;
+  width: 92px;
+  margin: 1rem;
+}
+
+h1 {
+  margin: 10rem 0 1rem;
+  text-transform: capitalize;
+}
+
+ul {
+  justify-items: center;
+  justify-content: center;
   color: white;
-  background-color: transparent;
-  text-decoration: none;
+  align-content: center;
 }
 
-.footer_logo {
-  grid-row: 1/ 3;
-}
-
-.footer_name {
-  grid-row: 3/4;
-  grid-column: 1/2;
-}
-
-.footer_address {
-  grid-row: 1/3;
-  grid-column: 2/3;
-}
-
-.footer_number {
-  grid-row: 3/4;
-  grid-column: 2/3;
-}
-
-.footer_social_media {
-  grid-row: 1/4;
-  grid-column: 3/4;
+h5 {
+  color: white;
 }
