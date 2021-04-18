@@ -12,7 +12,10 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{% static 'customer_home/booking_base.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'customer_home/booking_base.css' %}"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700;1,900&display=swap"
@@ -75,52 +78,48 @@
     </div>
 
     <div class="footer">
-      <div class="footer_dummy"></div>
-      <div class="footer_details">
-        <div class="footer_item footer_logo">
-          <img
-            src="{% static 'customer_home/logo_r.jpg' %}"
-            alt=""
-            width="50%"
-            height=""
-          />
-        </div>
-        <div class="footer_item footer_name">
-          <h2>Radisson Inn</h2>
-        </div>
-        <div class="footer_item footer_address">
-          <h3>Located At</h3>
-          <h5>Wayne Manor, Hyderabad, India</h5>
-        </div>
-        <div class="footer_item footer_no">
-          <h3>Contact Us</h3>
-          <a class="tel_no" href="tel://009176543210"
-            ><h5>+91 765 432 10</h5></a
+      <ul class="nav .justify-content-center navbar-light">
+        <li class="nav-item">
+          <a class="nav-link" href="https://g.page/parkinn_ipextension?share"
+            ><h5>Click to navigate to us</h5></a
           >
-        </div>
-        <div class="footer_social_media">
-          <a href="https://facebook.com"
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tel://009176543210"
+            ><h5>Click to call for enquiry</h5></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="https://facebook.com" class="nav-link"
             ><img
               src="{% static 'customer_home/icons8-facebook-64.png' %}"
               alt=""
+              width="30"
+              height="30"
           /></a>
-          <a href="https://instagram.com"
+        </li>
+        <li class="nav-item">
+          <a href="https://instagram.com" class="nav-link"
             ><img
               src="{% static 'customer_home/icons8-instagram-64.png' %}"
               alt=""
+              width="30"
+              height="30"
           /></a>
-          <a href="https://pinterest.com"
+        </li>
+        <li class="nav-item">
+          <a href="https://pinterest.com" class="nav-link"
             ><img
               src="{% static 'customer_home/icons8-pinterest-64.png' %}"
               alt=""
+              width="30"
+              height="30"
           /></a>
-        </div>
-      </div>
-      <div class="footer_dummy"></div>
+        </li>
+      </ul>
     </div>
   </body>
 </html>
-
 
 <!--
 <!DOCTYPE html>
@@ -246,19 +245,19 @@
           </li>
           <li class="nav-item">
             <a href="https://facebook.com" class="nav-link"
-              ><img src="/images/icons8-facebook-64.png" alt="" width="30"
+              ><img src="{% static 'customer_home/icons8-facebook-64.png' %}" alt="" width="30"
               height="30"
             /></a>
           </li>
           <li class="nav-item">
             <a href="https://instagram.com" class="nav-link"
-              ><img src="/images/icons8-instagram-64.png" alt="" width="30"
+              ><img src="{% static 'customer_home/icons8-instagram-64.png' %}" alt="" width="30"
               height="30"
             /></a>
           </li>
           <li class="nav-item">
             <a href="https://pinterest.com" class="nav-link"
-              ><img src="/images/icons8-pinterest-64.png" alt="" width="30"
+              ><img src="{% static 'customer_home/icons8-pinterest-64.png' %}" alt="" width="30"
               height="30"
             /></a>
           </li>
@@ -267,4 +266,4 @@
   </body>
 </html>
 
---> 
+-->
