@@ -2,6 +2,9 @@ from io import BytesIO
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from .models import Reservation
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
 
 def renderPDF(template_path, context, outputfile):
     template = get_template(template_path)
@@ -22,3 +25,17 @@ def isAvailable(booking):
     else:
         return False
     
+def checkoutEmail(user):
+    details = {
+        'name' : user.username,
+    }
+    template = render_to_string('booking/checkout_email.html', details)
+
+    email = EmailMessage(
+    'Thanks for your stay at RadissonInn. Would you share oyur experience', 
+    template,
+    settings.EMAIL_HOST_USER,
+    [user.email]
+    )
+    email.fail_silently=False
+    email.send()
