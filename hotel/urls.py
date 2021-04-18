@@ -37,7 +37,7 @@ urlpatterns = [
     path('staff_home/', include('staff_home.urls')),
     path('', include('customer_home.urls')),
     path('booking/', include('booking.urls')),
-    path('rooms/', cusHomeViews.customerHomeRooms, name='rooms')
+    path('rooms/', cusHomeViews.customerHomeRooms, name='rooms'),
 ]
 
 if settings.DEBUG:
