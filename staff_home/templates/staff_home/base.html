@@ -72,7 +72,18 @@
           </h3>
         <li><a> Checkin - {{reservation.checkin}} </a></li>
         <li><a> Checkout - {{reservation.checkout}} </a></li>
-        <li><a> Roomtype - {{reservation.roomtype}} </a></li>
+        {% if reservation.roomtype == 1 %}
+        <li><a> Roomtype - Single </a></li>
+        {% endif %}
+        {% if reservation.roomtype == 2 %}
+        <li><a> Roomtype - Double </a></li>
+        {% endif %}
+        {% if reservation.roomtype == 3 %}
+        <li><a> Roomtype - Luxury </a></li>
+        {% endif %}
+        {% if reservation.roomtype == 4 %}
+        <li><a> Roomtype - Suite </a></li>
+        {% endif %}
         <li><a> Rooms - {{reservation.rooms}} </a></li>
       </fieldset>
       {% endfor %}
