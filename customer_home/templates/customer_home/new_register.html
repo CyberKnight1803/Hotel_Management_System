@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,18 +65,21 @@
     <div class="content">
       <h1>You need an account to make a booking</h1>
 
-      <form action="">
+      <form action="" method="POST">
+        {% csrf_token %}
         <fieldset>
           <legend>Name</legend>
-          <input type="text" class="input" placeholder="First Name" />
-          <input type="text" class="input" placeholder="Last Name" />
+          <input type="text" id="first_name" name="first_name" class="input" placeholder="First Name" />
+          <input type="text" class="input" id="last_name" name="last_name" placeholder="Last Name" />
         </fieldset>
         <fieldset>
           <legend>Contact Details</legend>
-          <input type="email" class="input" placeholder="Email" />
+          <input type="email" class="input" id="email" name="email"placeholder="Email" />
           <input
             type="number"
             class="input"
+            id="phone"
+            name="phone"
             placeholder="Phone Number"
             min="1000000000"
             max="9999999999"
@@ -83,10 +87,10 @@
         </fieldset>
         <fieldset>
           <legend>Credentials</legend>
-          <input type="text" class="input" placeholder="Username" required/>
+          <input type="text" class="input" id="username" name="username" placeholder="Username" required/>
           <br />
-          <input type="password" class="input" placeholder="Password" required/>
-          <input type="password" class="input" placeholder="Confirm Password" required />
+          <input type="password" class="input" id="password1" name="password1" placeholder="Password" required/>
+          <input type="password" class="input" id="password2" name="password2" placeholder="Confirm Password" required />
         </fieldset>
 
         <div class="buttons">

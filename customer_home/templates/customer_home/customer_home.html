@@ -24,9 +24,9 @@
   </head>
 
   <body>
-    <nav class="navbar fixed-top navbar-light bg-light">
+<nav class="navbar fixed-top navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="homepage.html">
+        <a class="navbar-brand" href="{% url 'Customer_Home' %}">
           <img
             src="{% static 'customer_home/bed.png' %}"
             alt=""
@@ -54,17 +54,18 @@
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         </li>
         {% else %}
-        <li class="nav-item"><a href="{%url 'rooms' %)" class="nav-link"></a></li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'register' %}">Register</a>
+          <a href="{% url 'rooms' %}" class="nav-link">Rooms</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Sign In</a>
         </li>
         {% endif %}
       </ul>
     </nav>
-
     <div class="content">
       <div class="banner">
         <img
