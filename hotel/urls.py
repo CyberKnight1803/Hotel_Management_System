@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users import views as login_views
+from customer_home import views as cusHomeViews
 from django.conf import settings
 from django.conf.urls.static import static
 # from customer_login import views as customer_login_views
@@ -36,6 +37,7 @@ urlpatterns = [
     path('staff_home/', include('staff_home.urls')),
     path('', include('customer_home.urls')),
     path('booking/', include('booking.urls')),
+    path('rooms/', cusHomeViews.customerHomeRooms, name='rooms')
 ]
 
 if settings.DEBUG:
