@@ -58,4 +58,3 @@ def liveRoomStats():
     vac_rooms = Room.objects.raw(query, ['VACANT'])
 
     return liveStats
-

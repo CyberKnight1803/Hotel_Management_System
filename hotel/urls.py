@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users import views as login_views
 from customer_home import views as cusHomeViews
+from booking import views as bookViews
 from django.conf import settings
 from django.conf.urls.static import static
 # from customer_login import views as customer_login_views
@@ -38,6 +39,7 @@ urlpatterns = [
     path('', include('customer_home.urls')),
     path('booking/', include('booking.urls')),
     path('rooms/', cusHomeViews.customerHomeRooms, name='rooms'),
+    path('feedback/', bookViews.checkout_feedback_page, name='feedback')
 ]
 
 if settings.DEBUG:
