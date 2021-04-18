@@ -64,52 +64,55 @@
     <div class="content">
       <h1>Please enter your booking details</h1>
 
-      <form action="">
+      <form action="" method="POST">
         <fieldset>
           <legend>Duration of Stay</legend>
           <div class="arrival_date">
             <label
-              for="input_arrival_date"
+              for="checkin"
               class="label"
               id="label_form_arrival_date"
               >Arrival Date</label
             >
-            <input required type="date" id="input_arrival_date" autofocus />
+            <input required type="date" id="checkin" name="checkin" autofocus />
           </div>
           <label
-            for="input_departure_date"
+            for="checkout"
             class="label"
             id="label_form_arrival_date"
             >Departure Date</label
           >
-          <input required type="date" id="input_departure_date" autofocus />
+          <input required type="date" id="checkout" name="checkout" autofocus />
         </fieldset>
         <fieldset>
           <legend>Occupants</legend>
           <input
             required
             type="number"
-            id="input_adults"
+            id="adults"
+            name="adults"
             placeholder="Number of Adults"
           /><input
             required
             type="number"
-            id="input_children"
+            id="children"
+            name="children"
             placeholder="Number of Children"
           />
         </fieldset>
         <fieldset>
           <legend>Room details</legend>
-          <select id="input_room_type" required>
-            <option value="Single" selected>Single</option>
-            <option value="Double">Double</option>
-            <option value="Luxury">Luxury</option>
-            <option value="Suite">Suite</option>
+          <select id="roomtype" name="roomtype" required>
+            <option value=1 selected>Single</option>
+            <option value=2>Double</option>
+            <option value=3>Luxury</option>
+            <option value=4>Suite</option>
           </select>
           <input
             required
             type="number"
-            id="input_number_of_rooms"
+            id="rooms"
+            name="rooms"
             placeholder="Number of Rooms"
           />
         </fieldset>
