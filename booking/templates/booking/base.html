@@ -1,15 +1,169 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
-    <body>
-        <form action="" method="POST">
-            {% csrf_token %}
-<!--             {{ form.as_p }}
-            <input type="submit", value="OK"> -->
-            <fieldset>
-                <legend>Book Now</legend>
-                {{ form.as_p }}
-            </fieldset>
-            <button>Book</button>
-        </form>
-    </body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking_sample</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'customer_home/new_booking.css' %}"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="homepage.html">
+          <img
+            src="{% static 'customer_home/bed.png' %}"
+            alt=""
+            width="65"
+            height="52"
+            class="d-inline-block align-text-center"
+          />
+          RadissonInn
+        </a>
+      </div>
+      <ul class="nav justify-content-end">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Booking' %}">Book Now</a>
+        </li>
+        {% if user.is_staff %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Staff Home Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register_staff' %}">Register Staff</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <div class="content">
+      <h1>Please enter your booking details</h1>
+
+      <form action="" method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <legend>Duration of Stay</legend>
+          <div class="arrival_date">
+            <label for="checkin" class="label" id="label_form_arrival_date"
+              >Arrival Date</label
+            >
+            <input required type="date" id="checkin" name="checkin" autofocus />
+          </div>
+          <label for="checkout" class="label" id="label_form_arrival_date"
+            >Departure Date</label
+          >
+          <input required type="date" id="checkout" name="checkout" autofocus />
+        </fieldset>
+        <fieldset>
+          <legend>Occupants</legend>
+          <input
+            required
+            type="number"
+            id="adults"
+            name="adults"
+            placeholder="Number of Adults"
+          /><input
+            required
+            type="number"
+            id="children"
+            name="children"
+            placeholder="Number of Children"
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Room details</legend>
+          <select id="roomtype" name="roomtype" required>
+            <option value="1" selected>Single</option>
+            <option value="2">Double</option>
+            <option value="3">Luxury</option>
+            <option value="4">Suite</option>
+          </select>
+          <input
+            required
+            type="number"
+            id="rooms"
+            name="rooms"
+            placeholder="Number of Rooms"
+          />
+        </fieldset>
+        <div class="buttons">
+          <button type="submit">Book</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="footer">
+      <ul class="nav .justify-content-center navbar-light">
+        <li class="nav-item">
+          <a class="nav-link" href="https://g.page/parkinn_ipextension?share"
+            ><h5>Click to navigate to us</h5></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tel://009176543210"
+            ><h5>Click to call for enquiry</h5></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="https://facebook.com" class="nav-link"
+            ><img
+              src="{% static 'customer_home/icons8-facebook-64.png' %}"
+              alt=""
+              width="30"
+              height="30"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a href="https://instagram.com" class="nav-link"
+            ><img
+              src="{% static 'customer_home/icons8-instagram-64.png' %}"
+              alt=""
+              width="30"
+              height="30"
+          /></a>
+        </li>
+        <li class="nav-item">
+          <a href="https://pinterest.com" class="nav-link"
+            ><img
+              src="{% static 'customer_home/icons8-pinterest-64.png' %}"
+              alt=""
+              width="30"
+              height="30"
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>

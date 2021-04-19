@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import BookingForm
+from .forms import BookingForm, FeedbackForm
 from django.contrib import messages
 from .models import Reservation
 from .utils import renderPDF, isAvailable
@@ -63,3 +63,14 @@ def bookings(request):
 def grid_view(request):
     return render(request, 'booking/grid.html')
     
+
+def checkout_feedback_page(request):
+    if request.method == 'POST':
+        form = FeedbackForm()
+        if form.is_valid():
+            form.save()
+    else:
+        form = FeedbackForm()
+    
+    return render(request, 'booking/feedback.html', {'form' : form})
+

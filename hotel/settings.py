@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,10 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'staff_login.apps.StaffLoginConfig',
     'staff_home.apps.StaffHomeConfig',
     'customer_home.apps.CustomerHomeConfig',
-    'customer_login.apps.CustomerLoginConfig',
     'booking.apps.BookingConfig',
     'users.apps.UsersConfig',
     'room.apps.RoomConfig',
@@ -85,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'omkar18032001',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -146,3 +144,5 @@ EMAIL_HOST_PASSWORD = 'radisson123'
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 AUTH_USER_MODEL = 'users.User'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIAURL = '/media/'

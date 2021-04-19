@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users import views as login_views
+from customer_home import views as cusHomeViews
+from booking import views as bookViews
+from django.conf import settings
+from django.conf.urls.static import static
 # from customer_login import views as customer_login_views
 # from customer_home import views as customer_home_views
 # from booking import views as booking_views
@@ -28,10 +32,16 @@ urlpatterns = [
     path('accounts/signup/customer/', login_views.CustomerSignUpView.as_view(), name='register'),
     path('accounts/signup/staff/', login_views.StaffSignUpView.as_view(), name='register_staff'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='customer_login/logout.html'), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('profile/', login_views.profile, name='profile'),
-    path('stafflogin/', include('staff_login.urls')),
+    # path('stafflogin/', include('staff_login.urls')),
     path('staff_home/', include('staff_home.urls')),
     path('', include('customer_home.urls')),
     path('booking/', include('booking.urls')),
+    path('rooms/', cusHomeViews.customerHomeRooms, name='rooms'),
+    path('feedback/', bookViews.checkout_feedback_page, name='feedback'),
+    path('history/', cusHomeViews.customerBookingHistory, name='history')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

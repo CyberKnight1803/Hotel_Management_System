@@ -1,0 +1,40 @@
+body {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 75px auto 300px;
+  grid-template-columns: 100%;
+  font-family: "Lato", sans-serif;
+}
+
+.navbar {
+  background-color: rgb(190, 28, 28);
+  display: grid;
+  grid-template-columns: 5fr 8fr;
+  grid-template-rows: 1 auto;
+  width: 100%;
+  padding: 0 5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(201, 202, 100, 0.733);
+}
+
+.content_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 1rem auto;
+}
+
+.footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
