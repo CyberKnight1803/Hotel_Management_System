@@ -1,4 +1,4 @@
-from django.contrib import messages
+
 from .forms import StaffSignUpForm, CustomerSignUpForm, UserUpdateForm, ProfileUpdateForm
 from django.views.generic import CreateView
 from .models import User
@@ -58,14 +58,14 @@ class CustomerSignUpView(CreateView):
             user_email = form.cleaned_data.get('email')
 
             template = render_to_string('users/email.html', {'name': username})
-            email = EmailMessage(
-                 'New Account!',
-                 template,
-                 settings.EMAIL_HOST_USER,
-                 [user_email]
-            )
-            email.fail_silently=False
-            email.send()
+            # email = EmailMessage(
+            #      'New Account!',
+            #      template,
+            #      settings.EMAIL_HOST_USER,
+            #      [user_email]
+            # )
+            # email.fail_silently=False
+            # email.send()
             #messages.success(request, f'Account created for {username}. You can now login')
         return redirect('home')
 
