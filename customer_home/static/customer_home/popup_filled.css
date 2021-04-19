@@ -1,0 +1,65 @@
+body {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-columns: 100%;
+  font-family: "Lato", sans-serif;
+}
+
+.navbar {
+  background-color: rgb(190, 28, 28);
+  display: grid;
+  grid-template-columns: 5fr 8fr;
+  grid-template-rows: 1 auto;
+  width: 100%;
+  padding: 0 5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-top: 8rem;
+  padding-bottom: 18rem;
+  background-color: rgba(114, 198, 209, 0.733);
+
+}
+
+.name, .check_in, .check_out, .number_of_people{
+    padding-top: 1.5rem;
+    text-align: right;
+}
+
+.button_checkout{
+    width: 200px;
+    border: 5px solid darkcyan;
+    text-align: center;
+    padding: 0.5rem 0;
+    background-color: rgb(136, 202, 142);
+    margin-top: 3rem;
+
+}
+
+.footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin: 10rem 0 1rem;
+  text-transform: capitalize;
+}
+
+ul {
+  justify-items: center;
+  justify-content: center;
+  color: white;
+  align-content: center;
+}
+
+.footer .h5 {
+  color: white;
+}

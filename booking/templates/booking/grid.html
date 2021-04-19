@@ -25,15 +25,15 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'Customer_Home' %}">
           <img
             src="{% static 'customer_home/bed.png' %}"
             alt=""
-            width="30"
-            height="24"
-            class="d-inline-block align-text-top"
+            width="65"
+            height="52"
+            class="d-inline-block align-text-center"
           />
           RadissonInn
         </a>
@@ -56,81 +56,118 @@
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'register' %}">Register</a>
+          <a href="{% url 'rooms' %}" class="nav-link">Rooms</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
         </li>
         {% endif %}
       </ul>
     </nav>
 
-    <div class="content">
-      <div class="container">
-        <div class="box alpha">
-          <a href="https://google.com">alpha</a><i class="fas fa-hotel"></i>
-        </div>
-        <div class="box alpha"><i class="fas fa-hotel"></i></div>
-        <div class="box alpha"><i class="fas fa-hotel"></i></div>
-        <div class="box alpha"><i class="fas fa-hotel"></i></div>
-        <div class="box beta"><i class="fas fa-hotel"></i></div>
-        <div class="box beta"><i class="fas fa-hotel"></i></div>
-        <div class="box beta"><i class="fas fa-hotel"></i></div>
-        <div class="box beta"><i class="fas fa-hotel"></i></div>
-        <div class="box gamma"><i class="fas fa-hotel"></i></div>
-        <div class="box gamma"><i class="fas fa-hotel"></i></div>
-        <div class="box gamma"><i class="fas fa-hotel"></i></div>
-        <div class="box gamma"><i class="fas fa-hotel"></i></div>
-        <div class="box delta"><i class="fas fa-hotel"></i></div>
-        <div class="box delta"><i class="fas fa-hotel"></i></div>
-        <div class="box delta"><i class="fas fa-hotel"></i></div>
-        <div class="box delta"><i class="fas fa-hotel"></i></div>
+        <div class="content">
+      <div class="category">
+        <h3 class="type">Single</h3>
+        <a href="https://google.com">
+          <div class="box one"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box two"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box three"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box four"></div>
+        </a>
+      </div>
+      <div class="category">
+        <h3 class="type">Double</h3>
+        <a href="https://google.com">
+          <div class="box one"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box two"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box three"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box four"></div>
+        </a>
+      </div>
+      <div class="category">
+        <h3 class="type">Luxury</h3>
+        <a href="https://google.com">
+          <div class="box one"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box two"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box three"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box four"></div>
+        </a>
+      </div>
+      <div class="category">
+        <h3 class="type">Suite</h3>
+        <a href="https://google.com">
+          <div class="box one"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box two"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box three"></div>
+        </a>
+        <a href="https://google.com">
+          <div class="box four"></div>
+        </a>
       </div>
     </div>
 
     <div class="footer">
-      <div class="footer_dummy"></div>
-      <div class="footer_details">
-        <div class="footer_item footer_logo">
-          <img
-            src="{% static 'customer_home/logo_r.jpg' %}"
-            alt=""
-            width="50%"
-            height=""
-          />
-        </div>
-        <div class="footer_item footer_name">
-          <h2>Radisson Inn</h2>
-        </div>
-        <div class="footer_item footer_address">
-          <h3>Located At</h3>
-          <h5>Wayne Manor, Hyderabad, India</h5>
-        </div>
-        <div class="footer_item footer_no">
-          <h3>Contact Us</h3>
-          <a class="tel_no" href="tel://009176543210"
-            ><h5>+91 765 432 10</h5></a
+      <ul class="nav .justify-content-center navbar-light">
+        <li class="nav-item">
+          <a class="nav-link" href="https://g.page/parkinn_ipextension?share"
+            ><h5>Click to navigate to us</h5></a
           >
-        </div>
-        <div class="footer_social_media">
-          <a href="https://facebook.com"
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tel://009176543210"
+            ><h5>Click to call for enquiry</h5></a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="https://facebook.com" class="nav-link"
             ><img
               src="{% static 'customer_home/icons8-facebook-64.png' %}"
               alt=""
+              width="30"
+              height="30"
           /></a>
-          <a href="https://instagram.com"
+        </li>
+        <li class="nav-item">
+          <a href="https://instagram.com" class="nav-link"
             ><img
               src="{% static 'customer_home/icons8-instagram-64.png' %}"
               alt=""
+              width="30"
+              height="30"
           /></a>
-          <a href="https://pinterest.com"
+        </li>
+        <li class="nav-item">
+          <a href="https://pinterest.com" class="nav-link"
             ><img
               src="{% static 'customer_home/icons8-pinterest-64.png' %}"
               alt=""
+              width="30"
+              height="30"
           /></a>
-        </div>
-      </div>
-      <div class="footer_dummy"></div>
+        </li>
+      </ul>
     </div>
   </body>
 </html>

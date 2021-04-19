@@ -12,7 +12,10 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{% static 'customer_home/staff_homepage.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'customer_home/staff_homepage.css' %}"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700;1,900&display=swap"
@@ -67,21 +70,20 @@
     <div class="content">
       {% for reservation in reservations %}
       <fieldset>
-          <h3>
-            <a href="{% url 'detailview' reservation.reservationID %}"> ReservationID - {{reservation.reservationID}} </a>
-          </h3>
+        <h3>
+          <a href="{% url 'detailview' reservation.reservationID %}">
+            ReservationID - {{reservation.reservationID}}
+          </a>
+        </h3>
         <li><a> Checkin - {{reservation.checkin}} </a></li>
         <li><a> Checkout - {{reservation.checkout}} </a></li>
         {% if reservation.roomtype == 1 %}
         <li><a> Roomtype - Single </a></li>
-        {% endif %}
-        {% if reservation.roomtype == 2 %}
+        {% endif %} {% if reservation.roomtype == 2 %}
         <li><a> Roomtype - Double </a></li>
-        {% endif %}
-        {% if reservation.roomtype == 3 %}
+        {% endif %} {% if reservation.roomtype == 3 %}
         <li><a> Roomtype - Luxury </a></li>
-        {% endif %}
-        {% if reservation.roomtype == 4 %}
+        {% endif %} {% if reservation.roomtype == 4 %}
         <li><a> Roomtype - Suite </a></li>
         {% endif %}
         <li><a> Rooms - {{reservation.rooms}} </a></li>
@@ -131,9 +133,4 @@
       </ul>
     </div>
   </body>
-</html>
-
-<!DOCTYPE html>
-<html>
-  <body></body>
 </html>
