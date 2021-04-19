@@ -20,25 +20,25 @@ class StaffSignUpView(CreateView):
     template_name = 'users/register.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['user_type'] = 'staff'
+        kwargs['message'] = 'Register Staff'
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
         if form.is_valid():
             user = form.save()
-        # username = form.cleaned_data.get('username')
-        # user_email = form.cleaned_data.get('email')
+        username = form.cleaned_data.get('username')
+        user_email = form.cleaned_data.get('email')
 
-        # template = render_to_string('customer_login/email.html', {'name': username})
-        # email = EmailMessage(
-        #     'New Account!',
-        #     template,
-        #     settings.EMAIL_HOST_USER,
-        #     [user_email]
-        # )
-        # email.fail_silently=False
-        # email.send()
-        # messages.success(request, f'Account created for {username}. You can now login')
+        template = render_to_string('customer_login/email.html', {'name': username})
+        email = EmailMessage(
+            'New Account!',
+            template,
+            settings.EMAIL_HOST_USER,
+            [user_email]
+        )
+        email.fail_silently=False
+        email.send()
+        messages.success(request, f'Account created for {username}. You can now login')
         return redirect('home')
 
 
@@ -48,7 +48,7 @@ class CustomerSignUpView(CreateView):
     template_name = 'users/register.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['user_type'] = 'customer'
+        kwargs['message'] = 'You need an account to make a booking'
         return super().get_context_data(**kwargs)
 
     def form_valid(self, form):
