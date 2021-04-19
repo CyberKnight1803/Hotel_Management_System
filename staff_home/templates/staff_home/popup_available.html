@@ -72,12 +72,14 @@
     </nav>
 
     <div class="content">
-      <form action="">
+      <form method="POST" action="">
+        {% csrf_token %}
         <fieldset>
-          <legend>Enter details</legend>
+          <legend>Enter Reservation ID</legend>
           <div class="reservation_id">
             <input
               type="number"
+              id="reservationID"
               placeholder="Reservation ID"
               required
               autofocus
