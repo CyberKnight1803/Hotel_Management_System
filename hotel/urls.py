@@ -21,6 +21,7 @@ from customer_home import views as cusHomeViews
 from booking import views as bookViews
 from django.conf import settings
 from django.conf.urls.static import static
+from staff_home import views as staff_home_views
 # from customer_login import views as customer_login_views
 # from customer_home import views as customer_home_views
 # from booking import views as booking_views
@@ -40,7 +41,8 @@ urlpatterns = [
     path('booking/', include('booking.urls')),
     path('rooms/', cusHomeViews.customerHomeRooms, name='rooms'),
     path('feedback/', bookViews.checkout_feedback_page, name='feedback'),
-    path('history/', cusHomeViews.customerBookingHistory, name='history')
+    path('history/', cusHomeViews.customerBookingHistory, name='history'),
+    path('popup_available/', staff_home_views.popup_available, name='popup_available'),
 ]
 
 if settings.DEBUG:
