@@ -7,11 +7,13 @@ from django.views.generic import DetailView
 from .forms import AvailabilityForm
 from room.utils import availableRooms
 from users.models import User
+from datetime import date
 
 @login_required
 @staff_required
 def home(request):
-    reservations = Reservation.objects.raw('SELECT * FROM booking_reservation')
+    today = date.today()
+    reservations = Reservation.objects.raw('SELECT * FROM booking_reservation WHERE "checkin" > %s ORDER BY "checkin"', [today])
     return render(request, 'staff_home/base.html', {'reservations': reservations})
 
 

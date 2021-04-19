@@ -3,7 +3,7 @@ from .models import Room
 from django.db import connection
 
 def availableRooms(Date):
-    R = {'Single' : 1, 'Double' : 2, 'Suite' : 3, 'Luxury' : 4}
+    R = {'Single' : 1, 'Double' : 2, 'Luxury' : 3, 'Suite' : 4}
 
     query = 'SELECT * FROM booking_reservation WHERE CAST(roomtype as integer) = %s AND "checkout" > %s AND "checkin" <= %s'
     single = Reservation.objects.raw(query, [R['Single'], Date, Date])
