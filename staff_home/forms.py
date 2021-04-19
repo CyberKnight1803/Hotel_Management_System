@@ -9,3 +9,6 @@ class AvailabilityForm(forms.Form):
 
 class PopupForm1(forms.Form):
     reservationID = forms.IntegerField()
+
+class searchBooking(forms.Form):
+    reservationID = forms.IntegerField()

@@ -4,18 +4,30 @@ from users.decorators import staff_required
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
-from .forms import AvailabilityForm, PopupForm1
+from .forms import AvailabilityForm, PopupForm1, searchBooking
 from room.utils import availableRooms, checkInRoom, checkOutRoom
 from users.models import User
 from datetime import date
 from django.http import HttpResponse
 
+
 @login_required
 @staff_required
 def home(request):
+    context = {}
+    if request.method == "POST":
+        form = searchBooking()
+        if form.is_valid():
+            id = form.cleaned_data('reservationID')
+            booking = Reservation.objects.raw('SELECT * FROM booking_reservation WHERE "reservationID" = %s', [id])
+            context['booking'] = booking
+    else:
+        form = searchBooking()
+
     today = date.today()
     reservations = Reservation.objects.raw('SELECT * FROM booking_reservation WHERE "checkin" > %s ORDER BY "checkin"', [today])
-    return render(request, 'staff_home/base.html', {'reservations': reservations})
+    context['reservations'] = reservations
+    return render(request, 'staff_home/base.html', context)
 
 
 # @login_required
@@ -65,7 +77,7 @@ def popup_available(request):
         form = PopupForm1(request.POST)
         if form.is_valid():
             reservationID = form.cleaned_data.get('reservationID')
-            checkinRoom(reservationID, 1)
+            checkInRoom(reservationID, 1)
             return redirect('home')
     else:
         # return HttpResponse("<h1>Horray</h1>")

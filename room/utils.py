@@ -22,8 +22,8 @@ def checkInRoom(reservationID, roomNo):
     ROOM = {
         1 : 'SINGLE',
         2 : 'DOUBLE',
-        3 : 'SUITE',
-        4 : 'LUXURY',
+        3 : 'LUXURY',
+        4 : 'SUITE',
     }
     c = connection.cursor()
     booking = Reservation.objects.raw('SELECT * FROM booking_reservation WHERE "reservationID"=%s', [reservationID])
